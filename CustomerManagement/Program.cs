@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
+using TurboCollections;
 
 
 namespace CustomerManagement
@@ -12,7 +13,3 @@ namespace CustomerManagement
         }
     }
 }
-
-
-
-Console.WriteLine("Hello, World!");
