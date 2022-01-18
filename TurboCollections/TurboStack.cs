@@ -27,6 +27,7 @@ namespace TurboCollections
             items[Count] = item;
             Count++;
         }
+        
 
         void Resize()
         {
@@ -37,6 +38,29 @@ namespace TurboCollections
             }
 
             items = result;
+        }
+
+        public T Peek()
+        {
+            if (Count==0)
+            {
+                throw new SystemException("stack is empty");
+            }
+
+            return items[Count - 1];
+        }
+
+        public T Pop()
+        {
+            if (Count==0)
+            {
+                throw new SystemException("stack is empty");
+            }
+
+            Count--;
+            var result = items[Count];
+            items[Count] = default(T);
+            return result;
         }
     }
    
