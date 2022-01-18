@@ -80,5 +80,10 @@ namespace TurboCollections
 
             return -1;
         }
+
+        public void Set(int index,T item)
+        {
+            items[index] = item;
+        }
     }
 }

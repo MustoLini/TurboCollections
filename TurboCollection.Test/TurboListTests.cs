@@ -72,6 +72,17 @@ namespace TurboCollection.Test
             list.Add(5);
             Assert.False(list.Contains(42));
         }
+
+        [Test]
+        public void SetSpecfiedIndexElement()
+        {
+            var list = new TurboList<int>();
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            list.Set(1,30);
+            Assert.AreEqual(30, list.Get(1));
+        }
         
     }
 }
