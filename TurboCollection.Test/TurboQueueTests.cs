@@ -23,21 +23,45 @@ namespace TurboCollection.Test
                 queue.EnQueue(4);
                 Assert.AreEqual(4,queue.Count);
         }
-        
-// returns the current amount of items contained in the stack.
-        // int Count;
+        [Test]
+        public void PeekReturnTheItemInFront()
+        {
+            TurboQueue<int> queue = new TurboQueue<int>();
+            queue.EnQueue(1);
+            queue.EnQueue(2);
+            queue.EnQueue(3);
+            queue.EnQueue(4);
+            Assert.AreEqual(1,queue.Peek());
+        }
+        [Test]
+        public void DequeueRemovesTheItemInFront()
+        {
+            TurboQueue<int> queue = new TurboQueue<int>();
+            queue.EnQueue(1);
+            queue.EnQueue(2);
+            queue.EnQueue(3);
+            queue.EnQueue(4);
+            Assert.AreEqual(1, queue.Dequeue());
+            queue.Dequeue();
+            Assert.AreEqual(3, queue.Dequeue());
+        }
 
-// adds one item to the back of the queue.
-        // void Enqueue(T item);
+        [Test]
+        public void ClearReturnItem()
+        {
+            TurboQueue<int> queue = new TurboQueue<int>();
+            queue.EnQueue(1);
+            queue.EnQueue(2);
+            queue.EnQueue(3);
+            queue.EnQueue(4);
+            Assert.AreEqual(1, queue.Dequeue());
+            queue.Dequeue();
+            Assert.AreEqual(3, queue.Dequeue());
+            queue.Clear();
+            Assert.AreEqual(0, queue.Count);
+        }
 
-// returns the item in the front of the queue without removing it.
-        // T Peek();
 
-// returns the item in the front of the queue and removes it at the same time.
-        // T Dequeue();
-
-// removes all items from the queue.
-        // void Clear();
         
         
     }
