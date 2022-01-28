@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TurboCollections\TurboCollections.csproj" />
+      <ProjectReference Include="..\TurboSort\TurboSort.csproj" />
     </ItemGroup>
 
 </Project>

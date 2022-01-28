@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using TurboSort;
 using TurboCollections;
 
 namespace TurboCollection.Test
@@ -81,6 +82,23 @@ namespace TurboCollection.Test
             list.Add(5);
             list.Set(1,30);
             Assert.AreEqual(30, list.Get(1));
+        }
+
+        [Test]
+        public void BubbleSort()
+        {
+            var list = new TurboList<int>();
+            list.Add(100);
+            list.Add(3);
+            list.Add(40);
+            list.Add(20);
+            list.Add(1);
+            list.Add(4);
+            list.Add(1);
+            list.Add(5);
+            list.Add(7);
+            list = TurboSort.TurboSort.BubbleSort(list);
+            Assert.AreEqual(100, list.Get(8));
         }
         
         
