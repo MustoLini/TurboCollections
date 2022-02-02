@@ -68,5 +68,77 @@ namespace TurboBinnarySearchTree
 
             return root;
         }
+
+        public Node SearchBinaryTree(int data)
+        {
+            return SearchBinaryTreeRecursively(headNode, data);
+        }
+
+        private Node SearchBinaryTreeRecursively(Node parentNode, int data)
+        {
+            if (parentNode.Data.Equals(data))
+            {
+                return parentNode;
+            }
+            else
+            {
+                if (data< parentNode.Data)
+                {
+                    return SearchBinaryTreeRecursively(parentNode.LeftNode, data);
+                    
+                }
+                else
+                {
+                    return SearchBinaryTreeRecursively(parentNode.RightNode, data);
+                }
+            }
+        }
+
+        public void Remove(int key)
+        {
+            RemoveHelper(headNode, key);
+        }
+
+        private Node RemoveHelper(Node root, int key)
+        {
+            if (root== null )
+            {
+                return root;
+            }
+
+            if (key< root.Data)
+            {
+                root.LeftNode = RemoveHelper(root.LeftNode, key);
+            }
+
+            else if (key> root.Data)
+            {
+                root.RightNode = RemoveHelper(root.RightNode, key);
+            }
+            else
+            {
+                if (root.LeftNode == null && root.RightNode == null)
+                {
+                    root = null;
+                }
+                else if (root.LeftNode != null && root.RightNode!= null)
+                {
+                    var maxNode = FindMax(root.RightNode);
+                    root.Data = maxNode.Data;
+                    root.RightNode = RemoveHelper(root.RightNode, maxNode.Data);
+                }
+            }
+
+            return root;
+        }
+
+        public Node FindMax(Node node)
+        {
+            while (node.LeftNode!= null)
+            {
+                node = node.LeftNode;
+            }
+            return node;
+        }
     }
 }
